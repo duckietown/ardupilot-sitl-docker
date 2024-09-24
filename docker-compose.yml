@@ -1,0 +1,6 @@
+services:
+  ardupilot-sitl:
+    image: duckietown/ardupilot-sitl
+    tty: true
+    ports:
+      - 5760:5760

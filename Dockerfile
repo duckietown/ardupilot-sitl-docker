@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ardupilot/ardupilot-dev-base
 
 ARG COPTER_TAG=Copter-4.0.3
 
@@ -21,9 +21,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Need sudo and lsb-release for the installation prerequisites
 RUN apt-get install -y sudo lsb-release tzdata
 
-# Need USER set so usermod does not fail...
-# Install all prerequisites now
-RUN USER=nobody Tools/environment_install/install-prereqs-ubuntu.sh -y
 
 # Continue build instructions from https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
 RUN ./waf distclean
